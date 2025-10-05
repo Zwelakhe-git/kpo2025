@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Cache-Control" content="on-cache, no-store, must-revalidate" />
+        <meta http-equiv="pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+        <meta charset="utf8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <style>
+            h1,h2,h3,h4,h5,h6{
+                margin: 0;
+            }
+            html{
+                background-color: rgb(33, 33, 33);
+                color: white;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+            body{
+                width: 100%;
+                padding: 0px 100px;
+                box-sizing: border-box;
+                margin: 0;
+            }
+            body *{
+                box-sizing: border-box;
+                position: relative;
+            }
+            .container{
+                margin-top: 50px;
+            }
+        </style>
+        {%block styles%}
+        {%endblock%}
+    </head>
+    <body>
+        <div class="nav">
+            <nav>
+                <a href="{% url 'konektem:index' %}">KONEKTEM</a>
+            </nav>
+        </div>
+        {%block content%}{%endblock content%}
+
+        <div id="footer"></div>
+    </body>
+</html>
