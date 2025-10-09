@@ -171,6 +171,82 @@
 **2.**   **Первые две диаграммы из подхода** [**https://c4model.com/**](https://c4model.com/)
 
 **2.1.**         **System Context Diagram (C4 Level 1)**
+``` puml
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml  
+
+Person(user, "Пользователь", "Читает новости, смотрит видео, покупает билеты, заказывает услуги")
+Person(admin, "Администратор", "Управляет контентом, услугами, мероприятиями")
+
+System_Boundary(c, "MediaHub") {
+    System(news, "Новостная платформа", "Показывает актуальные новости")
+    System(streaming, "Медиа-стриминг", "Стриминг музыки и видео (платный)")
+    System(tickets, "Продажа билетов", "Бронирование и оплата билетов")
+    System(services, "Цифровые услуги", "Заказ графического дизайна, видеосъёмки и т.д.")
+    System_Boundary(internal, "Внутренние сервисы") {
+        System(auth, "Сервис аутентификации")
+        System(payments, "Платёжный шлюз")
+        System(notifications, "Уведомления (email/push)")
+    }
+}
+
+Rel(user, news, "Просматривает")
+Rel(user, streaming, "Смотрит/слушает")
+Rel(user, tickets, "Покупает билеты")
+Rel(user, services, "Заказывает услуги")
+Rel(user, auth, "Авторизуется")
+
+Rel(admin, news, "Публикует")
+Rel(admin, streaming, "Загружает контент")
+Rel(admin, tickets, "Создаёт мероприятия")
+Rel(admin, services, "Управляет предложениями")
+
+Rel(tickets, payments, "Интеграция")
+Rel(services, notifications, "Отправка статусов")
+Rel(news, notifications, "Экстренные уведомления")
+@enduml
+```
+
+``` puml
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+Person(user, "Пользователь")
+
+Container_Boundary(b1, "MediaHub") {
+    Container(web, "Веб-фронтенд", "React SPA", "HTML/CSS/JS")
+    Container(mobile, "Мобильное приложение", "iOS/Android", "Kotlin/Swift")
+    
+    Container(api_gateway, "API Gateway", "Traefik/Nginx", "Маршрутизация запросов")
+    
+    Container(news_svc, "Сервис новостей", "Go/Node.js", "REST/GraphQL")
+    Container(media_svc, "Сервис медиа", "Go + FFmpeg", "HLS/DASH streaming")
+    Container(tickets_svc, "Сервис билетов", "Java/Spring", "Бронирование, инвентарь")
+    Container(services_svc, "Сервис услуг", "Python/FastAPI", "CRM-логика")
+    
+    ContainerDb(db, "PostgreSQL", "Хранение метаданных, профилей, билетов")
+    ContainerDb(media_storage, "Объектное хранилище", "S3/MinIO", "Видео, аудио, изображения")
+    Container(external_payments, "Внешние платёжные системы", "Visa, PayPal и др.", "REST API")
+}
+
+Rel(user, web, "Использует браузер")
+Rel(user, mobile, "Использует приложение")
+Rel(web, api_gateway, "HTTP/HTTPS")
+Rel(mobile, api_gateway, "HTTP/HTTPS")
+
+Rel(api_gateway, news_svc, "GET /news")
+Rel(api_gateway, media_svc, "GET /stream")
+Rel(api_gateway, tickets_svc, "POST /tickets")
+Rel(api_gateway, services_svc, "POST /orders")
+
+Rel(news_svc, db, "Чтение/запись")
+Rel(tickets_svc, db, "Транзакции")
+Rel(services_svc, db, "Заявки")
+
+Rel(media_svc, media_storage, "Чтение медиафайлов")
+Rel(tickets_svc, external_payments, "Интеграция оплаты")
+@enduml
+```
 
 ![image-20251008203223314](https://github.com/Zwelakhe-git/kpo2025/tree/main/readmeFiles/images/image-20251008203223314.png)
 
