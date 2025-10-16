@@ -248,7 +248,7 @@ Rel(tickets_svc, external_payments, "Интеграция оплаты")
 @enduml
 ```
 
-![image-20251008203223314](https://github.com/Zwelakhe-git/kpo2025/tree/main/readmeFiles/images/image-20251008203223314.png)
+![image-20251008203223314](readmeFiles/images/image-20251008203223314.png)
 
 
 
