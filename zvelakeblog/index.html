@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <meta name="theme-color" content="black"/>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title></title>
+    <link rel="shortcut icon" type="image/png" href="/media/images/favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="/experimental/CSS/footerStyle.css"/>
+    <link rel="stylesheet" type="text/css" href="/experimental/CSS/topBar.css"/>
+    <link rel="stylesheet" type="text/css" href="/CSS/navpanelstyle.css"/>
+    <link rel="stylesheet" type="text/css" href="/experimental/CSS/globalStyle.css"/>
+    <script src="https://kit.fontawesome.com/6f0be4257f.js" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js" nomodule></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="/experimental/JS/baseScript.js"></script>
+    <style id="root-style"></style>
+    <style>
+        body{
+            width: 100%;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        #root{
+            min-height: 100vh;
+            width: 100%;
+        }
+        #loading-logo{
+            position: relative;
+            margin: auto;
+            margin-top: 35%;
+            animation: 1s ease-in-out infinite rotateAnimation;
+            border-radius: 50%;
+            width: fit-content;
+            height: fit-content;
+        }
+
+        @keyframes rotateAnimation{
+            from { transform: rotate(0deg) }
+            to { transform: rotate(360deg) }
+        }
+        
+        /* search bar styles */
+        .search-bar {
+            background: white;
+            border-radius: 9px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .search-bar:focus-within {
+            border-color: #3498db;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+        
+        #tb-inp-el {
+            border: none;
+            padding: 12px 20px;
+            font-size: 1em;
+            background: transparent;
+            width: 100%;
+            color: #2c3e50;
+        }
+        
+        #tb-inp-el:focus {
+            border: none;
+            outline: none;
+            box-shadow: none;
+        }
+        
+        #tb-inp-el::placeholder {
+            color: #95a5a6;
+        }
+        
+        .search-bar .fa-magnifying-glass:hover {
+            background: #2980b9;
+            transform: scale(1.05);
+        }
+    </style>
+  </head>
+  <body>
+    <div id="top-bar" class="no-margin flxDisp">
+        <div class="top-bar-container">
+            
+            <div id="top-bar-content" class="flxDisp full-h">
+                <div id="logo">
+                    <img alt="logo" type="image/jpg" width="50" height="50" src="/media/images/Konektem.png"/>
+                </div>
+            	<div class="container links search flxDisp">
+                    <div class="search-bar flxDisp">
+                        <input id="tb-inp-el" class="input no-outln no-bdr full-w" name='search' placeholder='Chache...' />
+                        <div id="tb-inp-div" class="input search-inp no-outln no-bdr full-w"><span>Chache</span></div>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <div class="social evenFlx">
+                        <a href="https://www.facebook.com/Konektempageofficielle?mibextid=LQQJ4d"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://x.com/konektemtv?s=21"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="https://www.instagram.com/konektem?igsh=MTBsdWQ0dXl4ZXY5Mg=="><i class="fa-brands fa-instagram"></i></a>    
+                        <a href="https://www.threads.net/@konektem"><i class="fa-brands fa-threads"></i></a>
+                        <a href="https://www.tiktok.com/@konektem?_t=8kUq55lp4Kc&_r=1"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://youtube.com/@konektemtv?si=x489XTA1xyNVoXjw"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="icon-container">
+                    <ion-icon name="reorder-three-outline"  class="opts-icon"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="nav-panel" class="grey-clr no-ovrflw no-margin">
+        <div id="nav" class="no-ovrflw">
+            <a tabindex="0" class="bdr-10 nav-link" href="/?p=actuality">
+                <ion-icon name="calendar-clear-outline"></ion-icon>
+              <span>Aktyalite</span>
+            </a>
+            <a tabindex="0" class="bdr-10 nav-link" href="/?p=music">
+                <ion-icon name="musical-notes-outline"></ion-icon>
+                <span>Bibliyotèk</span>
+            </a>
+            <a tabindex="0" class="bdr-10 nav-link" href="/?p=services">
+                <i class="fa-solid fa-satellite-dish"></i>
+                <span>Sèvis</span>
+            </a>
+            <a tabindex="0" class="bdr-10 nav-link" href="/?p=streaming">
+                <ion-icon name="radio-outline"></ion-icon>
+                <span>Layv</span>
+            </a>
+            <a tabindex="0" class="bdr-10 nav-link" href="/?p=events">
+                <ion-icon name="calendar-outline"></ion-icon>
+                <span>Evenman</span>
+            </a>
+            <a tabindex="0" class="bdr-10 nav-link" href="/?p=emailsubscribtion">
+                <i class="fa-regular fa-thumbs-up"></i>
+                <span>Abòne</span>
+            </a>
+            <a tabindex="0" class="bdr-10 nav-link" id="nav-search-link">
+                <ion-icon name="search-outline"></ion-icon>
+                <span>Chache</span>
+            </a>
+            <a tabindex="0" class="bdr-10 nav-link" href="/">
+                <i class="fa-solid fa-house"></i>
+                <span>Akèy</span>
+            </a>
+            <a tabindex="0" class="bdr-10 nav-link" href="/?p=contacts">
+                <i class="fa-solid fa-phone"></i>
+                <span>Kontak</span>
+            </a>
+            <!--<a tabindex="0" class="bdr-10 nav-link" href="http://localhost:3000">
+                <i class="fa-solid fa-gear"></i>
+                <span>Kontak</span>
+            </a>-->
+            <a id='prof-link' tabindex="0" class="bdr-10 nav-link">
+                <i class="fa-solid user-prof"></i>
+                <span class='user-id'></span>
+            </a>
+        </div>
+    </div>
+
+    <div id="root">
+    	<div id="loading-logo">
+            <img alt="logo" type="image/jpg" width="50" height="50" src="/media/images/Konektem.png"/>
+        </div>
+    </div>
+    
+  </body>
+</html>
