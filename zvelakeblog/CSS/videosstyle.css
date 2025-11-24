@@ -1,0 +1,31 @@
+body, html{
+    width : 100%;
+    height : 100%;
+}
+body{
+    margin : 0;
+    display : flex;
+    flex-direction: column;
+    gap : 10px;
+}
+
+#body-content{
+    display : grid;
+    grid-template-columns : 3fr 1fr;
+    grid-template-rows : 10% 30%;
+    padding : 0px;
+}
+#head{
+    background-color: white;
+}
+#middle-panel{
+    padding : 0px 10px;
+    border : none;
+}
+#body-video-item{
+    width : 100%;
+}
+#body-video-item video{
+    width : 100%;
+    border-radius : 15px;
+}

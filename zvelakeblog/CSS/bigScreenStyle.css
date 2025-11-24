@@ -1,0 +1,30 @@
+@media only screen and (min-width : 768px){
+/* BIG SCREEN */
+body{
+  grid-template-columns : 3fr 1fr;
+}
+#right-panel{
+  grid-row : var(--right-panel-big);
+  grid-column: 2;
+}
+.news-content-link{
+  width : 50%;
+}
+.video-link{
+  width : 100%;
+}
+#events-section{
+  grid-row : var(--events-big);
+  grid-column : 2;
+}
+#events-section-gap,#right-panel-gap{
+  display : none;
+}
+
+#footer{
+  flex-direction: row;
+}
+#about-company,#contact-information{
+  width : 49%
+}
+}

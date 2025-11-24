@@ -1,0 +1,13 @@
+input[type="text"], input[type="url"]{
+    padding : 8px;
+    font-size : 18px;
+}
+input::placeholder{
+    color : grey;
+    font-size : 18px;
+}
+
+#body-content{
+    width : 55%;
+    
+}

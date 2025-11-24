@@ -1,0 +1,471 @@
+html, body,#root{
+  width : 100%;
+  font-family : Roboto, Arial, sans-serif;
+}
+body,#root{
+  margin : 0px;
+  overflow-x: hidden;
+}
+html{
+  background : var(--page-background-color);
+}
+
+:root{
+  --page-background-color : whitesmoke;
+  --panels-bg-color : linear-gradient(to right, #583c85, #6359ab, #3f56aa, #1e1e9b);
+  --sec-bg-clr : #cfc8c8;
+}
+
+.pg-bg{
+  background : var(--page-background-color);
+}
+.articles{
+    padding-bottom: 15px;
+  	width: 100%;
+}
+#events-list {
+    display : flex;
+    flex-direction : row;
+    justify-content : space-evenly;
+    overflow: auto;
+    width: 100%;
+    height: 253px;
+    padding-bottom: 15px;
+}
+
+.events-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.events-header h2 {
+    font-size: 1.6rem;
+    color: #2d3436;
+    margin-bottom: 8px;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+}
+.trk-bg{
+    padding: 5px 0px 5px 5px;
+}
+
+.event-card {
+    position: absolute;
+    top : 0;
+    left : 0;
+    background: #ededed;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    will-change : opacity;
+    transition: opacity 2s ease-in-out;
+    opacity: 0;
+    flex: 0 0 auto;
+    width: 45%;
+    height: 230px;
+    padding : 5px;
+}
+
+.event-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.event-image {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    height: 50%;
+    border-radius: 14px 14px 0px 0px;
+}
+.ev-container{
+    opacity : 1;
+    transition : opacity 2s ease;
+    background-color: white;
+    border-radius: 16px;
+    width: 78%;
+    height: 84%;
+    margin: auto;
+}
+.event-card.selected{
+    opacity : 1;
+}
+.ev-container.selected{
+    opacity : 1;
+}
+.event-content {
+    flex: 1;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+}
+
+.event-date {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #d63031;
+    margin-bottom: 6px;
+}
+
+.event-title {
+    font-size: 1.2rem;
+    color: #2d3436;
+    margin: 6px 0;
+}
+
+.event-location {
+    color: #636e72;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+}
+
+.ticket-info {
+    display: flex;
+    background: #f1f2f6;
+    padding: 3px 3px;
+    border-radius: 10px;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.ticket-price {
+    font-weight: bold;
+    color: #0984e3;
+}
+
+.buy-btn {
+    display: block;
+    text-align: center;
+    background: #00b894;
+    color: #fff;
+    border-radius: 10px;
+    padding: 4px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+.buy-btn:hover {
+    background: #019874;
+}
+#top-bar{
+    background-color: #1d0962;
+}
+.top-bar-container{
+    background-image : url("/media/images/top_bar_bg.jpg");
+    background-size : cover;
+    background-repeat : no-repeat;
+    background-position: center;
+}
+.social ion-icon,
+.social svg,
+.social i{
+    color: white;
+    width: 16px;
+    height: 16px;
+}
+
+.sub{
+    flex-direction : column;
+    color : white;
+}
+.sub-inpF{
+    flex-direction : column;
+    gap : 15px;
+}
+input[name="clientemail"]{
+    background-color: transparent;
+    padding : 8px;
+    border-radius : 6px;
+    caret-color: inherit;
+}
+input[name="clientemail"]:focus{
+    outline : none;
+}
+.sub-bg{
+    z-index : -1;
+}
+.mail-sub{
+    flex-direction : row;
+    gap : 10px;
+}
+.html-bg-vid{
+    object-fit : cover;
+    border-radius: 10px;
+}
+.subform{
+    flex-direction : column;
+    gap: 15px;
+    color: inherit;
+    width: 80% !important;
+}
+label[for="emailSub"]{
+    font-size : 14px;
+}
+#emailSndBtn{
+    border : none;
+    background-color : red;
+    height : 35px;
+    color : white;
+    border-radius : 5px;
+    transition : background-color 0.3ms linear;
+}
+
+#emailSndBtn:active{
+    background-color : white;
+    color : black;
+}
+.contnform {
+    position: absolute;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+}
+
+.sub-text{
+    flex-direction: column;
+    color : inherit;
+    padding: 10px 20px;
+}
+.p-big{
+    font-size: 24px;
+    font-family: TimesNewRoman;
+    font-weight: bold;
+}
+.p-sml{
+    font-size : 14px;
+}
+.btn-div{
+    width : fit-content;
+    height : 20px;
+    padding : 5px;
+    display : flex;
+    flex-direction: row;
+    gap : 2px;
+    background-color : #41d606;
+    border-radius : 5px;
+}
+.track{
+    display : flex;
+    flex-direction: row;
+    align-items : center;
+    background-color: #edededcc;
+    border-radius : 10px;
+    padding : 10px 15px;
+    margin-bottom: 10px;
+}
+.track-img{
+    margin-right : 10px;
+    width : 70px;
+    height : 70px;
+    border-radius : 10px;
+}
+.track-img img{
+    object-fit: cover;
+    border-radius : 10px;
+    width: 100%;
+    height: 100%;
+}
+.music-info, .video-info {
+    flex: 1;
+}
+.media-actions{
+    left : 40px;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    font-size: 13px;
+}
+
+.music-title, .video-title {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 3px;
+}
+
+.music-artist, .video-duration {
+    font-size: 14px;
+    color: #7f8c8d;
+}
+
+.music-duration, .video-duration {
+    font-size: 14px;
+    color: #7f8c8d;
+    margin-left: 10px;
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    margin-top: 2px;
+}
+
+.play-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #3498db;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 4px;
+    background: #e1e4e8;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background: #3498db;
+    width: 0%;
+}
+
+.partners img.beep{
+    transform : scale(1.1);
+}
+
+.partners img {
+    max-height: 50px;
+    max-width: 50px;
+    cursor: pointer;
+    animation: 1s ease-out infinite beepAnimation;
+}
+
+@keyframes beepAnimation{
+    from { transform: scale(1.0)}
+    to { transform: scale(1.05)}
+}
+@keyframes rotationAnimation{
+    from { transform: rotate(0deg)}
+    to {transform: rotate(360deg)}
+}
+
+.partners img:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.icon-bg.cntr{
+    justify-content: center;
+    align-items: center;
+}
+.rp-vid-Lk{
+    width : var(--rp-vidLk-w);
+    padding : 0 var(--rp-vidLk-pad-rl);
+}
+
+.vid-container{
+  padding : 0px 10px;
+}
+.icon-bg{
+  position: absolute;
+  width: calc(100% - 20px);
+  height : 100%;
+  z-index : 10;
+  display: flex;
+  flex-direction : column;
+}
+
+.icon-bg.back{
+  z-index : -10;
+}
+
+.more-actions{
+    display : flex;
+    flex-direction : row;
+    gap: 5px;
+    color : black;
+    place-items : center;
+    border-radius: 5px;
+    height: 40px;
+}
+.action-btn {
+    display: flex;
+    gap:3px; 
+}
+.more-actions a{
+    color : black;
+}
+.slide-image-container{
+    flex : 0 0 auto;
+    width: 100%;
+    height: 100%;
+}
+.slide-image{
+    margin-bottom: 15px;
+}
+.slide-img-desc{
+   text-align : left;
+   padding: 0px 15px;
+}
+
+.section-info a{
+    color : red;
+    text-decoration: none;
+}
+
+/* services */
+
+#services-list{
+  display : flex;
+  flex-direction : row;
+  overflow: auto;
+  gap : 10px;
+  margin-bottom : 7px;
+  padding: 5px;
+  scroll-behavior: smooth;
+}
+.serv-container{
+  flex : 0 0 auto;
+  width : 150px;
+  height: 193px;
+  box-sizing : border-box;
+  border-radius : 5px;
+  padding : 5px;
+  /* border : 1px solid green; */
+  box-shadow: 0 0 8px rgb(179, 175, 175);
+}
+.service-desc{
+  height: 19%;
+  margin-bottom : 5px;
+  padding : 5px;
+  /* border : 1px solid black; */
+  box-shadow: 0 0 5px grey;
+}
+.service-img{
+  height: 75%;
+  padding: 6px;
+  border-radius : 5px;
+  box-sizing : border-box;
+}
+.service-img-cont{
+  width : 100%;
+  height : 100%;
+  box-shadow: 0 0 5px grey;
+}
+.service-img-cont img{
+    width: 100%;
+    height : 100%;
+    /* object-fit: cover; */
+    aspect-ratio: 1/1;
+}
+.media-ico{
+  font-size: 13px;
+}

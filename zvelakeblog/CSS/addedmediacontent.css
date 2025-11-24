@@ -1,0 +1,26 @@
+
+body{
+    display : block;
+}
+#main{
+    display : flex;
+    flex-direction: column;
+    flex-wrap: no-wrap;
+}
+
+.del-vid{
+    background-color :white;
+    border : none;
+}
+.vid-item-container{
+    width : auto;
+}
+#middle-panel{
+    border : none;
+}
+button img{
+    transition : transform 0.3ms linear;
+}
+button img:active{
+    transform : scale(1.2);
+}

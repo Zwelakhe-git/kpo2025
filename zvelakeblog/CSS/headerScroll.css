@@ -1,0 +1,34 @@
+@media only screen and (min-width : 768px){
+:root{
+    --scroll-btn-w : 60px;
+    --scroll-btn-h : 60px;
+}
+.scroll-btn{
+    opacity : 0;
+    display : none;
+    transition : opacity 0.3ms ease;
+    position : absolute;
+    transform : translateY(-50%);
+    width : var(--scroll-btn-w);
+    height : var(--scroll-btn-h);
+    border-radius: 50%;
+    border: none;
+    font-weight: bold;
+    font-size: 35px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    padding: 12px;
+}
+
+#head:hover .scroll-btn{
+    display : block;
+    opacity : 1;
+}
+
+.scroll-btn.left{
+    left : 0;
+}
+.scroll-btn.right{
+    left: calc(100% - 60px);
+}
+}
