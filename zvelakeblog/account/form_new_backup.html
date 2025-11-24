@@ -1,0 +1,56 @@
+<div class="form-container">
+        	<form class="regForm">
+                <div class="auth-container">
+    
+    <button class="close-btn">✕</button>
+
+    <h2>Log in or sign up</h2>
+    <p class="subtitle">
+        You’ll get smarter responses and can upload files, images, and more.
+    </p>
+
+    <!-- Google Auth Button -->
+    <button class="oauth-btn">
+        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="">
+        Continue with Google
+    </button>
+
+    <div class="divider">
+        <span></span> OR <span></span>
+    </div>
+
+    <!-- Email Login -->
+    <input type="email" placeholder="Email address" class="input-field">
+
+    <button class="submit-btn">Continue</button>
+
+</div>
+
+            
+        </form>
+
+        </div>
+
+const email = document.getElementById("email");
+            const psw = document.getElementById("password");
+            const toggle = document.getElementById("toggleTheme");
+
+            document.getElementById("send-btn").onclick = () => {
+                validate(email, v => v.includes("@"));
+                validate(psw, v => v.length >= 6);
+            };
+
+            function validate(input, rule) {
+                const group = input.parentElement;
+                if (!rule(input.value)) group.classList.add("error");
+                else group.classList.remove("error");
+            }
+
+            // Dark mode toggle
+            toggle.onclick = () => {
+                document.body.classList.toggle("dark-mode");
+                toggle.textContent =
+                    document.body.classList.contains("dark-mode")
+                        ? "☀️ Disable Dark Mode"
+                        : "🌙 Enable Dark Mode";
+            };
