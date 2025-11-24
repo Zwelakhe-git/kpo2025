@@ -1,0 +1,51 @@
+.partners img.beep{
+    transform : scale(1.1);
+}
+.partner-img-cont{
+    width: 50px;
+    height: 50px;
+}
+.partners img {
+    max-height: 100%;
+    max-width: 100%;
+    cursor: pointer;
+    animation: 1s ease-in-out infinite beepAnimation;
+}
+
+.partner-img-cont:nth-child(n + 4) img{
+    width: 73%;
+    height: 73%;
+}
+#partners-list{
+    display : flex;
+    flex-direction : row;
+    justify-content : space-evenly;
+    padding : 0px 0px 15px;
+    border-bottom : 1px solid grey;
+}
+.section-info{
+    width : 100%;
+    min-height : 30px;
+    margin-bottom : 10px;
+    display : flex;
+    flex-direction : row;
+    justify-content: flex-start;
+    padding: 9px 0px;
+    border-top: 1px solid #d9d6d6;
+    border-bottom: 1px solid #d9d6d6;
+    color: red;
+}
+.section-info h1{
+    font-size : 14px;
+    display : inline-block;
+    margin: 0;
+    width : fit-content;
+    padding : 7px;
+    border-left: 4px solid red;
+    font-weight: 500;
+    font-family: grote;
+}
+@keyframes beepAnimation{
+    0%, 100% { transform: scale(1.0)}
+    50% { transform: scale(1.05)}
+}

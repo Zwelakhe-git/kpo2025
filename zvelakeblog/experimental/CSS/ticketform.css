@@ -1,0 +1,644 @@
+/* Основные стили для формы покупки билетов */
+
+@media (min-width: 768px){
+    #root{
+        width: 80%;
+    }
+}
+*{
+    box-sizing: border-box;
+}
+#root{
+    margin: auto;
+}
+.min-h-screen {
+    min-height: 100vh;
+}
+
+.bg-gray-50 {
+    background-color: #f9fafb;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.rounded-2xl {
+    border-radius: 1rem;
+}
+
+.shadow-lg {
+    box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.hover\:shadow-lg:hover {
+    box-shadow: 0 20px 40px -4px rgba(0, 0, 0, 0.15), 0 8px 10px -4px rgba(0, 0, 0, 0.1);
+}
+
+.transition {
+    transition: all 0.3s ease;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+/* Хлебные крошки */
+.text-gray-600 {
+    color: #4b5563;
+}
+
+.hover\:text-purple-600:hover {
+    color: #8b5cf6;
+}
+
+.text-purple-600 {
+    color: #8b5cf6;
+}
+
+.font-medium {
+    font-weight: 500;
+}
+
+/* Карточка события */
+.bg-purple-50 {
+    background-color: #faf5ff;
+}
+
+.rounded-xl {
+    border-radius: 0.75rem;
+}
+
+.object-cover {
+    object-fit: cover;
+}
+
+.rounded-lg {
+    border-radius: 0.5rem;
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+}
+
+.text-gray-800 {
+    color: #1f2937;
+}
+
+.text-gray-600 {
+    color: #4b5563;
+}
+
+.text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+
+.text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+/* Форма */
+.space-y-6 > * + * {
+    margin-top: 1.5rem;
+}
+
+.block {
+    display: block;
+}
+
+.text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+
+.font-medium {
+    font-weight: 500;
+}
+
+.text-gray-700 {
+    color: #374151;
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.py-3 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+.border {
+    border-width: 1px;
+}
+
+.border-gray-300 {
+    border-color: #d1d5db;
+}
+
+.rounded-lg {
+    border-radius: 0.5rem;
+}
+
+.focus\:ring-2:focus {
+    box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.5);
+}
+
+.focus\:ring-purple-500:focus {
+    --tw-ring-color: rgba(139, 92, 246, 0.5);
+}
+
+.focus\:border-purple-500:focus {
+    border-color: #8b5cf6;
+}
+
+/* Сетка */
+.grid {
+    display: grid;
+}
+
+.grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.gap-4 {
+    gap: 1rem;
+}
+
+/* Счетчик билетов */
+.flex {
+    display: flex;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.space-x-4 > * + * {
+    margin-left: 1rem;
+}
+
+.w-10 {
+    width: 2.5rem;
+}
+
+.h-10 {
+    height: 2.5rem;
+}
+
+.rounded-full {
+    border-radius: 9999px;
+}
+
+.border-gray-300 {
+    border-color: #d1d5db;
+}
+
+.hover\:bg-gray-50:hover {
+    background-color: #f9fafb;
+}
+
+.text-gray-500 {
+    color: #6b7280;
+}
+
+.w-20 {
+    width: 5rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.border-0 {
+    border-width: 0;
+}
+
+.text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.focus\:ring-0:focus {
+    box-shadow: none;
+}
+
+/* Радио кнопки оплаты */
+.relative {
+    position: relative;
+}
+
+.flex.cursor-pointer {
+    cursor: pointer;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.peer:checked + .border-2 {
+    border-color: #8b5cf6;
+    background-color: #faf5ff;
+}
+
+.peer:checked + .border-gray-200 {
+    border-color: #8b5cf6;
+}
+
+.peer:checked + .peer-checked\:border-purple-500 {
+    border-color: #8b5cf6;
+}
+
+.peer:checked + .peer-checked\:bg-purple-50 {
+    background-color: #faf5ff;
+}
+
+/* Чекбоксы */
+.flex.items-start {
+    align-items: flex-start;
+}
+
+.space-x-3 > * + * {
+    margin-left: 0.75rem;
+}
+
+.mt-1 {
+    margin-top: 0.25rem;
+}
+
+.w-4 {
+    width: 1rem;
+}
+
+.h-4 {
+    height: 1rem;
+}
+
+.text-purple-600 {
+    color: #8b5cf6;
+}
+
+.border-gray-300 {
+    border-color: #d1d5db;
+}
+
+.rounded {
+    border-radius: 0.25rem;
+}
+
+.focus\:ring-purple-500:focus {
+    --tw-ring-color: rgba(139, 92, 246, 0.5);
+}
+
+/* Кнопка оплаты */
+.bg-purple-600 {
+    background-color: #8b5cf6;
+}
+
+.text-white {
+    color: white;
+}
+
+.py-4 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.rounded-lg {
+    border-radius: 0.5rem;
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+}
+
+.hover\:bg-purple-700:hover {
+    background-color: #7c3aed;
+}
+
+.transition {
+    transition: all 0.3s ease;
+}
+
+.duration-200 {
+    transition-duration: 200ms;
+}
+
+/* Боковая панель */
+.sticky {
+    position: sticky;
+}
+
+.top-6 {
+    top: 1.5rem;
+}
+
+.space-y-3 > * + * {
+    margin-top: 0.75rem;
+}
+
+.mb-6 {
+    margin-bottom: 1.5rem;
+}
+
+.my-2 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.my-4 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.border-t {
+    border-top-width: 1px;
+}
+
+.pt-4 {
+    padding-top: 1rem;
+}
+
+/* Гарантии */
+.flex.items-start {
+    align-items: flex-start;
+}
+
+.space-x-3 > * + * {
+    margin-left: 0.75rem;
+}
+
+.mt-1 {
+    margin-top: 0.25rem;
+}
+
+.text-green-500 {
+    color: #10b981;
+}
+
+.text-blue-500 {
+    color: #3b82f6;
+}
+
+.text-orange-500 {
+    color: #f59e0b;
+}
+
+/* Адаптивность */
+@media (min-width: 768px) {
+    .md\:grid-cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    .lg\:grid-cols-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    
+    .lg\:col-span-2 {
+        grid-column: span 2 / span 2;
+    }
+    
+    .lg\:col-span-1 {
+        grid-column: span 1 / span 1;
+    }
+}
+
+/* Кастомные стили для улучшения внешнего вида */
+.form-input-custom {
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #fafafa;
+}
+
+.form-input-custom:focus {
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+    background: white;
+    outline: none;
+}
+
+.ticket-counter-btn {
+    width: 44px;
+    height: 44px;
+    border: 2px solid #d1d5db;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+    color: #6b7280;
+}
+
+.ticket-counter-btn:hover {
+    border-color: #8b5cf6;
+    background: #8b5cf6;
+    color: white;
+    transform: scale(1.05);
+}
+
+.payment-option {
+    border: 2px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    background: white;
+    cursor: pointer;
+}
+
+.payment-option.selected {
+    border-color: #8b5cf6;
+    background: linear-gradient(135deg, #faf5ff, #f3e8ff);
+    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.15);
+    transform: translateY(-2px);
+}
+
+.payment-btn-custom {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    border: none;
+    border-radius: 16px;
+    padding: 1.25rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.payment-btn-custom:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba(139, 92, 246, 0.4);
+}
+
+/* Анимации */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Улучшения для мобильных */
+@media (max-width: 768px) {
+    .mobile-padding {
+        padding: 1rem;
+    }
+    
+    .mobile-text-center {
+        text-align: center;
+    }
+}
+
+/* Утилитарные классы */
+.text-purple-600 {
+    color: #8b5cf6;
+}
+
+.bg-purple-50 {
+    background-color: #faf5ff;
+}
+
+.border-purple-200 {
+    border-color: #ddd6fe;
+}
+
+.hover-lift:hover {
+    transform: translateY(-2px);
+    transition: transform 0.3s ease;
+}
+
+/* ticket-form.css - только кастомные улучшения */
+.form-input-custom {
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #fafafa;
+}
+
+.form-input-custom:focus {
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+    background: white;
+    outline: none;
+}
+
+.ticket-counter-btn {
+    width: 44px;
+    height: 44px;
+    border: 2px solid #d1d5db;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+    color: #6b7280;
+}
+
+.ticket-counter-btn:hover {
+    border-color: #8b5cf6;
+    background: #8b5cf6;
+    color: white;
+    transform: scale(1.05);
+}
+
+.payment-option.selected {
+    border-color: #8b5cf6 !important;
+    background: linear-gradient(135deg, #faf5ff, #f3e8ff) !important;
+    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.15) !important;
+    transform: translateY(-2px);
+}
+
+.payment-btn-custom {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    border: none;
+    border-radius: 16px;
+    padding: 1.25rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+}
+
+.payment-btn-custom:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba(139, 92, 246, 0.4);
+}
+
+.payment-btn-custom:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.hidden {
+    display: none;
+}
