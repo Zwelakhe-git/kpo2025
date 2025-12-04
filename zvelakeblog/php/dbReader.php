@@ -1,6 +1,8 @@
 <?php
-error_reporting(0);
-ini_set('display_errors', 1);
+error_reporting(E_ALL);
+ini_set('display_errors', 0);
+ini_set('log_errors', 1);
+ini_set('error_log', __DIR__ . '/../logs/error.log');
 
 define('MODELS_PATH', __DIR__ . '/../admin/models/');
 define('ADMIN_PATH', __DIR__ . '/../admin');
@@ -25,7 +27,6 @@ function cleanUtf8($data) {
 
 $resource_name = $_GET["r"] ?? "all";
 $query = $_GET['q'] ?? null;
-$search = $_GET['search'] ?? null;
 $resourcesToFetch = [];
 $finalReponse = [];
 
@@ -33,7 +34,7 @@ try {
     $resourcesToFetch = [
         ["name" => "musicContent", "result" => (new MusicModel())->getAllMusic()],
         ["name" => "services", "result" => (new ServiceModel())->getAllServices()],
-        ["name" => "news", "result" => (new NewsModel())->getAllNews()],
+        ["name" => "news", "result" => (new NewsModel())->getAllNews($source = isset($_GET['source']) ? $_GET['source'] : 'local')],
         ["name" => "events", "result" => (new EventModel())->getAllEvents()],
         ["name" => "videos", "result" => (new VideoModel())->getAllVideos()],
         ["name" => "stream", "result" => (new LiveStreamModel())->getAllStreams()],
@@ -64,12 +65,30 @@ if($query){
         case 'googleAuthUrl':
             $finalReponse = $controller->getGoogleAuthUrl();
             break;
-        case 'useracitvities':
-            $finalReponse = $controller->userActivities();
+        case 'savetokenFB':
+	    $finalResponse = $controller->saveFirebaseToken();
+            break;
+        case 'streamAccess':
+            $finalReponse = $controller->grantStreamAccess();
+            break;
+        case 'viewerReg':
+            $finalReponse = $controller->registerViewer();
             break;
         case 'createOrder':
             $controller = new OrderController();
             $finalReponse = $controller->createOrder();
+            break;
+        case 'updatePaymentStatus':
+            $controller = new OrderController();
+            $finalReponse = $controller->updatePaymentStatus();
+            break;
+        case 'orders':
+            $controller = new OrderController();
+            $finalReponse = $controller->getAllOrders();
+            break;
+        case 'createServiceOrder':
+            $controller = new ServiceOrderController();
+            $controller->createOrder();
             break;
         default:
             break;
@@ -95,49 +114,11 @@ if (empty($finalReponse)) {
             foreach($resourcesToFetch as $resource) {
                 if($resource["name"] == $resource_name) {
                     $finalReponse = $resource["result"];
-                    
-                    // Apply search filter if search parameter is provided
-                    if ($search && !empty($search)) {
-                        $finalReponse = applySearchFilter($finalReponse, $search, $resource_name);
-                    }
                     break;
                 }
             }
             break;
     }
-}
-
-// Function to apply search filtering
-function applySearchFilter($data, $searchTerm, $resourceType) {
-    if (!is_array($data)) {
-        return $data;
-    }
-    
-    $searchTerm = strtolower($searchTerm);
-    
-    return array_filter($data, function($item) use ($searchTerm, $resourceType) {
-        switch($resourceType) {
-            case 'news':
-                return (isset($item['newsTitle']) && stripos($item['newsTitle'], $searchTerm) !== false) ||
-                       (isset($item['newsHeadline']) && stripos($item['newsHeadline'], $searchTerm) !== false) ||
-                       (isset($item['fullContent']) && stripos($item['fullContent'], $searchTerm) !== false);
-                
-            case 'musicContent':
-                return (isset($item['track_name']) && stripos($item['track_name'], $searchTerm) !== false) ||
-                       (isset($item['artist_name']) && stripos($item['artist_name'], $searchTerm) !== false);
-                
-            case 'events':
-                return (isset($item['title']) && stripos($item['title'], $searchTerm) !== false) ||
-                       (isset($item['location']) && stripos($item['location'], $searchTerm) !== false) ||
-                       (isset($item['host']) && stripos($item['host'], $searchTerm) !== false);
-                
-            case 'services':
-                return (isset($item['name']) && stripos($item['name'], $searchTerm) !== false);
-                
-            default:
-                return true;
-        }
-    });
 }
 
 header("Content-Type: application/json; charset=utf-8");
