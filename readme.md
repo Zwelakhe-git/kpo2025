@@ -5,7 +5,7 @@
 
 Проект представляет собой современное масштабируемое веб-приложение для медиакомпании, объединяющее в себе несколько продуктов на одной платформе.
 
-ссылка: <a href="https://konektem.net">перейти на сайт</a>
+ссылка: <a href="https://s120187.foxcdn.ru">перейти на сайт</a>
 
 ## Основные возможности
 
@@ -22,10 +22,10 @@
 ## Архитектура (C4 model)
 
 ### Уровень 1 — Контекстная диаграмма
-![image-20251204161046455](images\image-20251204161046455.png)
+![image-20251204161046455](readmeFiles/images/image-20251204161046455.png)
 
 ### Уровень 2 — Диаграмма контейнеров (реализация)
-![image-20251204161937183](images\image-20251204161937183.png)
+![image-20251204161937183](readmeFiles/images/image-20251204161937183.png)
 
 ### Технологический стек
 
@@ -130,21 +130,21 @@ OneSignal предоставляет готовую инфраструктуру
 
 Таким образом, OneSignal является ключевым компонентом коммуникационной подсистемы проекта, обеспечивая стабильную доставку уведомлений и удобство взаимодействия с пользователем.
 
-![Снимок экрана 2025-11-30 195407](images\onesignalpage.png)
+![Снимок экрана 2025-11-30 195407](readmeFiles/images/onesignalpage.png)
 
 **OneSignal платформа**
 
-![Снимок экрана 2025-11-30 195420](images\notificationUI.png)
+![Снимок экрана 2025-11-30 195420](readmeFiles/images/notificationUI.png)
 
 **интерфейс подписки пользователей**
 
 при нажатии кнопки пользователи подписываются на push уведомления новостей. при новых обновлениях или публикациях они получают уведомления подобное на в этом изображении.
 
-![Снимок экрана 2025-11-28 182439](images\notificationexample.png)
+![Снимок экрана 2025-11-28 182439](readmeFiles/images/notificationexample.png)
 
 ​							**push уведомление на экране подписчиков**
 
-![image-20251130201808624](C:\Users\ThunderPC\AppData\Roaming\Typora\typora-user-images\image-20251130201808624.png)
+![image-20251130201808624](readmeFiles/images/image-20251130201808624.png)
 
 
 
@@ -308,17 +308,17 @@ GET https://newsapi.org/v2/everything?q=Apple&from=2025-11-24&sortBy=popularity&
 
 
 
-![image-20251130213800079](C:\Users\ThunderPC\AppData\Roaming\Typora\typora-user-images\image-20251130213800079.png)
+![image-20251130213800079](readmeFiles/images/image-20251130213800079.png)
 
 пользователь заходит на главную страницу и видит ленту новостей. Он может заходит на главную страницу новостей и выбрать категории (политика, культура, технологии, и т.д.)
 
-![](images\mp_news_link.png)
+![](readmeFiles/images/mp_news_link.png)
 
 **главная страница с выделенной ссылкой на страницу новостей**
 
 
 
-![](images\news_sec_highlight.png)
+![](readmeFiles/images/news_sec_highlight.png)
 
 **страница новостей: возможность выборки по категрии**
 
@@ -367,14 +367,14 @@ GET https://newsapi.org/v2/everything?q=Apple&from=2025-11-24&sortBy=popularity&
    - Реквизиты используются для доступа к трансляции
 
 ### Диаграмма последовательности
-![image-20251203230346165](C:\Users\ThunderPC\AppData\Roaming\Typora\typora-user-images\image-20251203230346165.png)
+![image-20251203230346165](readmeFiles/images/image-20251203230346165.png)
 
 ### Архитектурная схема
-![image-20251203230814129](C:\Users\ThunderPC\AppData\Roaming\Typora\typora-user-images\image-20251203230814129.png)
+![image-20251203230814129](readmeFiles/images/image-20251203230814129.png)
 
 
 
-![Снимок экрана от 2025-12-03 07-11-30](C:\Users\ThunderPC\Desktop\kpo\images\Снимок экрана от 2025-12-03 07-11-30.png)
+![Снимок экрана от 2025-12-03 07-11-30](readmeFiles/images/Снимок экрана от 2025-12-03 07-11-30.png)
 
 **ответ клиенту после оплаты**
 
@@ -398,11 +398,11 @@ GET https://newsapi.org/v2/everything?q=Apple&from=2025-11-24&sortBy=popularity&
      - PDF версию в виде вложения
      - Реквизиты для доступа к трансляции
 
-![image-20251203230630125](C:\Users\ThunderPC\AppData\Roaming\Typora\typora-user-images\image-20251203230630125.png)
+![image-20251203230630125](readmeFiles/images/image-20251203230630125.png)
 
 
 
-<img src="C:\Users\ThunderPC\Desktop\kpo\images\stream_email.jpg" alt="stream_email" style="zoom:33%;" />
+<img src="readmeFiles/images/stream_email.jpg" alt="stream_email" style="zoom:33%;" />
 
 ​											**пример почты у клиента**
 
@@ -464,29 +464,29 @@ GET https://newsapi.org/v2/everything?q=Apple&from=2025-11-24&sortBy=popularity&
 
 ### Диаграмма (PUML)
 
-![image-20251203231400663](C:\Users\ThunderPC\AppData\Roaming\Typora\typora-user-images\image-20251203231400663.png)
+![image-20251203231400663](readmeFiles/images/image-20251203231400663.png)
 
 
 
-![Снимок экрана 2025-12-04 070600](C:\Users\ThunderPC\Desktop\kpo\images\Снимок экрана 2025-12-04 070600.png)
+![Снимок экрана 2025-12-04 070600](readmeFiles/images/Снимок экрана 2025-12-04 070600.png)
 
 **страница событий**
 
 
 
-![Снимок экрана 2025-12-04 070306](C:\Users\ThunderPC\Desktop\kpo\images\Снимок экрана 2025-12-04 070306.png)
+![Снимок экрана 2025-12-04 070306](readmeFiles/images/Снимок экрана 2025-12-04 070306.png)
 
 **покупка билетов**
 
 
 
-![Снимок экрана от 2025-12-04 06-14-34](C:\Users\ThunderPC\Desktop\kpo\images\Снимок экрана от 2025-12-04 06-14-34.png)
+![Снимок экрана от 2025-12-04 06-14-34](readmeFiles/images/Снимок экрана от 2025-12-04 06-14-34.png)
 
 **уведомление после оплаты**
 
 
 
-![Снимок экрана от 2025-12-04 06-16-13](C:\Users\ThunderPC\Desktop\kpo\images\Снимок экрана от 2025-12-04 06-16-13.png)
+![Снимок экрана от 2025-12-04 06-16-13](readmeFiles/images/Снимок экрана от 2025-12-04 06-16-13.png)
 
 **почта у клиента с билетом**
 
@@ -513,23 +513,23 @@ GET https://newsapi.org/v2/everything?q=Apple&from=2025-11-24&sortBy=popularity&
 5. Backend возвращает order_id` и текущий статус.
 6. Менеджер видит заказ, связывается с клиентом и обновляет статус (`confirmed`, `cancelled`, `completed`).
 
-![image-20251204065742841](C:\Users\ThunderPC\AppData\Roaming\Typora\typora-user-images\image-20251204065742841.png)
+![image-20251204065742841](readmeFiles/images/image-20251204065742841.png)
 
- ![](C:\Users\ThunderPC\Desktop\kpo\images\service_form.png)
+ ![](readmeFiles/images/service_form.png)
 
 **клиент заказывает услугу**
 
 
 
-![](C:\Users\ThunderPC\Desktop\kpo\images\service_payment.png)
+![](readmeFiles/images/service_payment.png)
 
 **перенаправление на оплату**
 
-![](C:\Users\ThunderPC\Desktop\kpo\images\service_payment_success.png)
+![](readmeFiles/images/service_payment_success.png)
 
 **при успешной оплате. ему отправляем почту с чеком**
 
-![](C:\Users\ThunderPC\Desktop\kpo\images\admin_orders.png)
+![](readmeFiles/images/admin_orders.png)
 
 **управление заказами**
 
@@ -587,10 +587,10 @@ GET https://newsapi.org/v2/everything?q=Apple&from=2025-11-24&sortBy=popularity&
    - Только текущие и запланированные трансляции
 
 ### Обновленная архитектурная диаграмма
-![image-20251204153311188](images\image-20251204153311188.png)
+![image-20251204153311188](readmeFiles/images/image-20251204153311188.png)
 
 ### Процесс доступа к музыкальному контенту
-![image-20251204153650856](images\image-20251204153650856.png)
+![image-20251204153650856](readmeFiles/images/image-20251204153650856.png)
 
 ### Ключевые особенности системы
 
@@ -614,4 +614,5 @@ GET https://newsapi.org/v2/everything?q=Apple&from=2025-11-24&sortBy=popularity&
 2. **"Как скачать?"** → кнопка "Скачать"
 3. **"Где посмотреть видео?"** → Раздел "Трансляции" с расписанием
 4. **"Можно ли сохранить видео?"** → Нет, только просмотр в реальном времени
+
 
