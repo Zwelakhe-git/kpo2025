@@ -3,8 +3,8 @@ function ticketForm(eventData) {
     <div class="min-h-screen bg-gray-50 py-8">
         <div class="max-w-4xl mx-auto px-4">
             <!-- Хлебные крошки -->
-            <nav class="mb-8">
-                <ol class="flex items-center space-x-2 text-sm text-gray-600">
+            <nav class="mb-8" style="margin-bottom: 32px;">
+                <ol class=" space-evenly flex items-center space-x-2 text-sm text-gray-600">
                     <li><a href="/" class="hover:text-purple-600">Главная</a></li>
                     <li><i class="fas fa-chevron-right text-xs"></i></li>
                     <li><a href="/?p=events" class="hover:text-purple-600">События</a></li>
@@ -16,7 +16,7 @@ function ticketForm(eventData) {
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <!-- Основная форма -->
                 <div class="lg:col-span-2">
-                    <div class="bg-white rounded-2xl shadow-lg p-6 mb-6">
+                    <div class="pad-20 bg-white rounded-2xl shadow-lg p-6 mb-6">
                         <h2 class="text-2xl font-bold text-gray-800 mb-6">Оформление заказа</h2>
                         
                         <!-- Информация о событии -->
@@ -168,13 +168,17 @@ function ticketForm(eventData) {
 
                 <!-- Боковая панель -->
                 <div class="lg:col-span-1">
-                    <div class="bg-white rounded-2xl shadow-lg p-6 sticky top-6">
+                    <div class="pad-20 bg-white rounded-2xl shadow-lg p-6 sticky top-6"
+                     style="
+                        width: calc(100% - 40px);
+                        margin: 0px auto;
+                    ">
                         <h3 class="text-lg font-semibold text-gray-800 mb-4">Ваш заказ</h3>
                         
                         <div class="space-y-3 mb-6">
                             <div class="flex justify-between text-sm">
                                 <span class="text-gray-600">Билеты</span>
-                                <span id="orderTicketCount">1 × $${eventData.price}</span>
+                                <span id="orderTicketCount">1 x $${eventData.price}</span>
                             </div>
                             <div class="flex justify-between text-sm">
                                 <span class="text-gray-600">Сбор за обслуживание</span>
@@ -203,13 +207,6 @@ function ticketForm(eventData) {
                                     <p class="text-xs text-gray-500">Билеты придут на email</p>
                                 </div>
                             </div>
-                            <div class="flex items-start space-x-3">
-                                <i class="fas fa-undo text-orange-500 mt-1"></i>
-                                <div>
-                                    <p class="text-sm font-medium text-gray-800">Возврат средств</p>
-                                    <p class="text-xs text-gray-500">За 48 часов до события</p>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -219,29 +216,29 @@ function ticketForm(eventData) {
     `;
 }
 
-function updatePrices(ticketPrice, serviceFee) {
+function updatePrices(ticketPrice, serviceFee = 0) {
     const ticketCount = parseInt(document.getElementById('ticketCount').value) || 1;
     const subtotal = ticketCount * ticketPrice;
     const total = subtotal + serviceFee;
 
-    document.getElementById('totalAmount').textContent = '\\$' + subtotal.toFixed(2);
-    document.getElementById('finalAmount').textContent = '\\$' + total.toFixed(2);
-    document.getElementById('orderTicketCount').textContent = ticketCount + ' × \\$' + ticketPrice;
-    document.getElementById('orderTotal').textContent = '\\$' + total.toFixed(2);
+    document.getElementById('totalAmount').textContent = '$' + subtotal.toFixed(2);
+    document.getElementById('finalAmount').textContent = '$' + total.toFixed(2);
+    document.getElementById('orderTicketCount').textContent = ticketCount + ' x $' + ticketPrice;
+    document.getElementById('orderTotal').textContent = '$' + total.toFixed(2);
 }
-function increaseTickets() {
+function increaseTickets(price, serviceFee) {
     const input = document.getElementById('ticketCount');
     if (parseInt(input.value) < 10) {
         input.value = parseInt(input.value) + 1;
-        updatePrices();
+        updatePrices(price, serviceFee);
     }
 }
 
-function decreaseTickets() {
+function decreaseTickets(price, serviceFee) {
     const input = document.getElementById('ticketCount');
     if (parseInt(input.value) > 1) {
         input.value = parseInt(input.value) - 1;
-        updatePrices();
+        updatePrices(price, serviceFee);
     }
 }
 function pageScript(eventData){
@@ -249,8 +246,8 @@ function pageScript(eventData){
         let serviceFee = 2.00;
     	const ticketDecreaseBtn = document.getElementById("decrease-tickets-btn");
     	const ticketIncreaseBtn = document.getElementById("increase-tickets-btn");
-    	ticketDecreaseBtn.addEventListener("click", decreaseTickets);
-    	ticketIncreaseBtn.addEventListener("click", increaseTickets);
+    	ticketDecreaseBtn.addEventListener("click", () => decreaseTickets(eventData.price, serviceFee));
+    	ticketIncreaseBtn.addEventListener("click", () => increaseTickets(eventData.price, serviceFee));
 
 		updatePrices(ticketPrice, serviceFee);
 
@@ -260,14 +257,15 @@ function pageScript(eventData){
             
             const formData = new FormData(this);
             const orderData = {
-                event_id: eventData.id,
+                item_name: 'event',
+                item_id: eventData.id,
                 ticket_count: parseInt(formData.get('ticket_count')),
                 first_name: formData.get('first_name'),
                 last_name: formData.get('last_name'),
                 email: formData.get('email'),
                 phone: formData.get('phone'),
                 payment_method: formData.get('payment_method'),
-                total_amount: (parseInt(formData.get('ticket_count')) * ticketPrice + serviceFee).toFixed(2)
+                total_amount: (parseInt(formData.get('ticket_count')) * ticketPrice + serviceFee).toFixed(2),
             };
 
             try {
@@ -283,7 +281,7 @@ function pageScript(eventData){
                 
                 if (result.success) {
                     // Перенаправление на страницу оплаты
-                    window.location.href = '/?p=payments&f=event&id=' + result.order_id;
+                    window.location.href = '/?p=payments&f=event&id=' + eventData.id + "&orderid="+ result.order_id;
                 } else {
                     alert('Ошибка при создании заказа: ' + result.message);
                 }
@@ -321,8 +319,8 @@ export default async function ticketFormPage(event_id){
             linkTag.href = src;
             document.head.appendChild(linkTag);
           }
-          let respone = await fetch('/php/dbReader.php?r=events');
-          let data = await respone.json();
+          let response = await fetch('/php/dbReader.php?r=events');
+          let data = await response.json();
           const eventData = data.find(event => event.id === Number(event_id) );
 
           if(eventData){

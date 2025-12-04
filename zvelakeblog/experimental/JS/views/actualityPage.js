@@ -1,8 +1,108 @@
-import Index from "./index.js";
 const max_slide_news= 10;
+
+const newsCategories = [
+    {
+        name: "technology",
+        content: `<section id="technology" class="news-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Технология</h2>
+                        <a href="#" class="view-all">View All</a>
+                    </div>
+                    <div class="news-grid">
+                    `
+    },
+    {
+        name: "business",
+        content: `<section id="business" class="news-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Бизнес</h2>
+                        <a href="#" class="view-all">View All</a>
+                    </div>
+                    <div class="news-grid">
+                    `
+    },
+    {
+        name: "politics",
+        content: `<section id="politics" class="news-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Политика</h2>
+                        <a href="#" class="view-all">View All</a>
+                    </div>
+                    <div class="news-grid">
+                    `
+    },
+    {
+        name: "entertainment",
+        content: `<section id="entertainment" class="news-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Развлечение</h2>
+                        <a href="#" class="view-all">View All</a>
+                    </div>
+                    <div class="news-grid">
+                    `
+    },
+    {
+        name: "sports",
+        content: `<section id="sports" class="news-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Спорт</h2>
+                        <a href="#" class="view-all">View All</a>
+                    </div>
+                    <div class="news-grid">
+                    `
+    },
+    {
+        name: "health",
+        content: `<section id="health" class="news-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Здравоохранение</h2>
+                        <a href="#" class="view-all">View All</a>
+                    </div>
+                    <div class="news-grid">
+                    `
+    },
+    {
+        name: "science",
+        content: `<section id="science" class="news-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Наука</h2>
+                        <a href="#" class="view-all">View All</a>
+                    </div>
+                    <div class="news-grid">
+                    `
+    }
+];
 // do not edit this function
-function actualityHtml(newsData){
-    let result = `<div class='container' id='current-news-root'></div>
+// function actualityHtml(newsContent){
+//     let result = `<div class='container' id='current-news-root'></div>
+//     <div class="container all-N">
+//     <div class="breaking-news">
+//         <h2><i class="fas fa-bolt"></i> BREAKING NEWS</h2>
+//         <a href='#'><p class='wht-clr'>TOP STORY</p></a>
+//     </div>
+
+//     <div class="section-nav">
+//         <div class="container">
+//             <ul>
+//                 <li><a href="#politics" class="active">Политика</a></li>
+//                 <li><a href="#business">Бизнес</a></li>
+//                 <li><a href="#technology">Технология</a></li>
+//                 <li><a href="#sports">Спорт</a></li>
+//                 <li><a href="#entertainment">Развлечение</a></li>
+//                 <li><a href="#health">Здравоохранение</a></li>
+//                 <li><a href="#science">Наука</a></li>
+//             </ul>
+//         </div>
+//     </div>
+//     ${newsContent}
+//     </div>`;
+    
+//     return result; 
+// }
+
+function combineContentWithTemplate(newsData){
+    let newsContent = groupNewsByCategory(newsData);
+    return `<div class='container' id='current-news-root'></div>
     <div class="container all-N">
     <div class="breaking-news">
         <h2><i class="fas fa-bolt"></i> BREAKING NEWS</h2>
@@ -12,102 +112,61 @@ function actualityHtml(newsData){
     <div class="section-nav">
         <div class="container">
             <ul>
-                <li><a href="#politics" class="active">Politik</a></li>
-                <li><a href="#business">Biznis</a></li>
-                <li><a href="#technology">Teknoloji</a></li>
-                <li><a href="#sports">Spo</a></li>
-                <li><a href="#entertainment">Amizman</a></li>
-                <li><a href="#health">Sante</a></li>
-                <li><a href="#science">Syans</a></li>
+                <li><a href="#politics" class="active">Политика</a></li>
+                <li><a href="#business">Бизнес</a></li>
+                <li><a href="#technology">Технология</a></li>
+                <li><a href="#sports">Спорт</a></li>
+                <li><a href="#entertainment">Развлечение</a></li>
+                <li><a href="#health">Здравоохранение</a></li>
+                <li><a href="#science">Наука</a></li>
             </ul>
         </div>
+    </div>
+    ${newsContent}
     </div>`;
-    let newsCategories = [
-        {
-            name: "technology",
-            content: `<section id="technology" class="news-section">
-                        <div class="section-header">
-                            <h2 class="section-title">Teknoloji</h2>
-                            <a href="#" class="view-all">View All</a>
-                        </div>
-                        <div class="news-grid">
-                        `
-        },
-        {
-            name: "business",
-            content: `<section id="business" class="news-section">
-                        <div class="section-header">
-                            <h2 class="section-title">Biznis</h2>
-                            <a href="#" class="view-all">View All</a>
-                        </div>
-                        <div class="news-grid">
-                        `
-        },
-        {
-            name: "politics",
-            content: `<section id="politics" class="news-section">
-                        <div class="section-header">
-                            <h2 class="section-title">Politik</h2>
-                            <a href="#" class="view-all">View All</a>
-                        </div>
-                        <div class="news-grid">
-                        `
-        },
-        {
-            name: "entertainment",
-            content: `<section id="entertainment" class="news-section">
-                        <div class="section-header">
-                            <h2 class="section-title">Amizman</h2>
-                            <a href="#" class="view-all">View All</a>
-                        </div>
-                        <div class="news-grid">
-                        `
-        },
-        {
-            name: "sports",
-            content: `<section id="sports" class="news-section">
-                        <div class="section-header">
-                            <h2 class="section-title">Spo</h2>
-                            <a href="#" class="view-all">View All</a>
-                        </div>
-                        <div class="news-grid">
-                        `
-        },
-        {
-            name: "health",
-            content: `<section id="health" class="news-section">
-                        <div class="section-header">
-                            <h2 class="section-title">Sante</h2>
-                            <a href="#" class="view-all">View All</a>
-                        </div>
-                        <div class="news-grid">
-                        `
-        },
-        {
-            name: "science",
-            content: `<section id="science" class="news-section">
-                        <div class="section-header">
-                            <h2 class="section-title">Syans</h2>
-                            <a href="#" class="view-all">View All</a>
-                        </div>
-                        <div class="news-grid">
-                        `
-        }
-    ];
+}
+
+function groupNewsByCategory(newsData){
+    let result = '';
     
+    newsData.forEach( item => {
+        switch(item.source){
+            case 'local':
+                getLocalNewsContent(item.content);
+                break;
+            case 'api':
+                getApiNewsContent(item.content);
+                break;
+            default:
+                result += getLocalNewsContent(item.content);
+        }
+    });
+    
+    newsCategories.forEach(category => {
+        category.content += `</div>
+                    </section>`
+        result += category.content;
+    });
+    return result;
+}
+
+function getLocalNewsContent(newsData){
     for(let i = 0; i < newsData.length; ++i){
         let newsCard = `<div class="news-card" id="${newsData[i].id}">
                 <div class="news-img">
-                    <img src="${newsData[i].image_location}" alt="Politics news">
+                    <img src="${newsData[i].image_location}" alt="news image">
                 </div>
                 <div class="news-content">
                     <div class="news-date">${newsData[i].newsDate}</div>
-                    <h3 class="news-title" data-newsid=${newsData[i].id}>${newsData[i].newsTitle}</h3>
+                    <div class="news-meta-info">
+                        <span class="news-author">author: ${newsData[i].author ?? ''}</span>
+                    </div>
+                    <h3 class="news-title">${newsData[i].newsTitle}</h3>
                     <p class="news-excerpt">${newsData[i].newsHeadline}</p>
                     <div class="full-content">
                         <p>${newsData[i].fullContent}</p>
                     </div>
-                    <a class="read-more" data-state="more">Read More <i class="fas fa-chevron-down"></i></a>
+                    <a class="read-more" data-state="more">читать дальше <i class="fas fa-chevron-down"></i></a>
                 </div>
             </div>`;
         	for(let j = 0; j < newsCategories.length; ++j){
@@ -117,19 +176,51 @@ function actualityHtml(newsData){
                     break;
                 }
             }
-            newsCategories.forEach(category => {
-                
-            });
     }
-    
-    newsCategories.forEach(category => {
-        category.content += `</div>
-                    </section>`
-        result += category.content;
-    });
-    
-    return result + `</div>`;
 }
+
+function getApiNewsContent(newsData){
+    for(let i = 0; i < newsData.length; ++i){
+        let newsCard = `<div class="news-card" id="api-${i}">
+                <div class="news-img">
+                    <img src="${newsData[i].urlToImage}" alt="news image">
+                </div>
+                <div class="news-content">
+                    <div class="news-date">${new Date(newsData[i].publishedAt).toLocaleDateString()}</div>
+                    <h3 class="news-title" data-newsid="api-${i}">${newsData[i].title}</h3>
+                    <p class="news-author" style="
+                        font-size: 12px;
+                        color: #555;
+                        margin-bottom: 8px;
+                    ">Автор: ${newsData[i].author ?? 'Неизвестен'}</p>
+                    <p class="news-source-name" style="
+                        font-size: 12px;
+                        color: #555;
+                        margin-bottom: 8px;
+                    ">Источник: ${newsData[i].source.name}</p>
+                    <a class="news-source" href="${newsData[i].url}" target="_blank" style="
+                        font-size: 12px;
+                        color: #0c3ab9ff;
+                        text-decoration: underline;
+                    ">Источник</a>
+                    <p class="news-excerpt">${newsData[i].description}</p>
+                    <div class="full-content">
+                        <p>${newsData[i].content ?? ''}</p>
+                    </div>
+                    <a class="read-more" data-state="more">читать дальше <i class="fas fa-chevron-down"></i></a>
+                </div>
+            </div>`;
+        	for(let j = 0; j < newsCategories.length; ++j){
+                let category = newsCategories[j];
+                if(newsData[i].category == category.name){
+                    category.content += newsCard;
+                    break;
+                }
+            }
+    }
+}
+
+
 function showMainNewsContent(newsId){
     let container = document.querySelector('#root');
     let allNewsContainer = document.querySelector('.all-N');
@@ -570,13 +661,13 @@ function actualityPageScript(){
                 // Expand content
                 fullContent.classList.add('expanded');
                 excerpt.classList.add('expanded');
-                this.innerHTML = 'Read Less <i class="fas fa-chevron-up"></i>';
+                this.innerHTML = 'читать меньше <i class="fas fa-chevron-up"></i>';
                 this.setAttribute('data-state', 'less');
             } else {
                 // Collapse content
                 fullContent.classList.remove('expanded');
                 excerpt.classList.remove('expanded');
-                this.innerHTML = 'Read More <i class="fas fa-chevron-down"></i>';
+                this.innerHTML = 'читать дальше <i class="fas fa-chevron-down"></i>';
                 this.setAttribute('data-state', 'more');
             }
         });
@@ -591,7 +682,7 @@ export default function actuality(){
           title = document.createElemnt("title");
           document.head.insertAdjacentElement("afterbegin", title);
       }
-      title.textContent = "Actuality";
+      title.textContent = "Medihub - Новости";
     
     let root = document.querySelector("#root");
     if(!root){
@@ -600,28 +691,37 @@ export default function actuality(){
     }
     actualityPageStyle();
     
-    setTimeout(() => {
-        fetch('/php/dbReader.php?r=news')
-        .then( response => response.json())
-        .then(data => { 
-            globNewsData = data;
-            root.innerHTML = actualityHtml(data);
-            actualityPageScript();
-            const searchParams = new URLSearchParams(window.location.search);
-            let url = new URL(window.location.href);
-            let hash = url.hash;
-            if(searchParams.get("id")){
-                let n_id = hash.substr(1);
-                showMainNewsContent(searchParams.get("id"));
-                /*
-                let targetitem = document.createElement("a");
-                targetitem.href = hash;
-                document.body.appendChild(targetitem);
-                targetitem.click();
-                document.body.removeChild(targetitem);
-                */
-            }
-        });
+    setTimeout( async () => {
+        const [localNewsResponse, globalNewsResponse] = await Promise.all([
+            fetch('/php/dbReader.php?r=news&source=local'),
+            fetch('/php/dbReader.php?r=news&source=api')
+        ]);
+        const [localNewsData, globalNewsData] = await Promise.all([
+            localNewsResponse.json(),
+            globalNewsResponse.json()
+        ]);
+
+        const newsData = [
+            {source: 'local', content: localNewsData},
+            {source: 'api', content: globalNewsData}
+        ];
+
+        root.innerHTML = combineContentWithTemplate(newsData);
+        actualityPageScript();
+        const searchParams = new URLSearchParams(window.location.search);
+        let url = new URL(window.location.href);
+        let hash = url.hash;
+        if(searchParams.get("id")){
+            let n_id = hash.substr(1);
+            showMainNewsContent(searchParams.get("id"));
+            /*
+            let targetitem = document.createElement("a");
+            targetitem.href = hash;
+            document.body.appendChild(targetitem);
+            targetitem.click();
+            document.body.removeChild(targetitem);
+            */
+        }
         //root.innerHTML = actualityHtml();
         
     },200);

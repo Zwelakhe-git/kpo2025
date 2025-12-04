@@ -1,30 +1,12 @@
 export function pageHtml(){
     return `
  <div class="container">
-    <h2>ABONNEZ-VOUS</h2>
-    <p class="subtitle">
-      Inscrivez-vous pour recevoir nos actualités et rester connecté !
-    </p>
-    <form id="subscribeForm">
-      <div>
-        <label for="nom">Nom</label>
-        <input type="text" id="nom" required>
-      </div>
-      <div>
-        <label for="prenom">Prénom</label>
-        <input type="text" id="prenom" required>
-      </div>
-      <div>
-        <label for="email">Adresse électronique *</label>
-        <input type="email" id="email" required>
-      </div>
-      <div>
-        <label for="message">Message</label>
-        <textarea id="message" placeholder="Votre message..."></textarea>
-      </div>
-      <button type="submit">S'abonner</button>
-    </form>
-  </div>`;
+ <p>
+    Оставайтесь на связи!
+Хотите быть в курсе всех новостей нашего сайта? Подпишитесь на уведомления и получайте самые интересные материалы первыми!
+
+Мы обещаем присылать только действительно важное и интересное.</p>
+<div class="onesignal-customlink-container" data-onesignal-customlink="true"></div>`;
 }
 
 export function pageStyle(){
@@ -44,7 +26,7 @@ export function pageStyle(){
     }
 
     #root .container {
-      max-width: 700px;
+      max-width: 80%;
       margin: 50px auto;
       padding: 30px;
       background: #fff;
@@ -107,20 +89,12 @@ export function pageStyle(){
 }
 
 function emailSubScript(){
-    document.getElementById("subscribeForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      const nom = document.getElementById("nom").value;
-      const prenom = document.getElementById("prenom").value;
-      const email = document.getElementById("email").value;
-      const message = document.getElementById("message").value;
-
-      if (nom && prenom && email) {
-        alert("Merci " + prenom + "! Votre souscription a été envoyée.");
-        document.getElementById("subscribeForm").reset();
-      } else {
-        alert("Veuillez remplir tous les champs obligatoires.");
-      }
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function() {
+    await OneSignal.init({
+      appId: "39dd8a55-2ec8-4667-9dec-c35358ecb56c",
     });
+  });
 }
 
 export default function emailSubPage(){

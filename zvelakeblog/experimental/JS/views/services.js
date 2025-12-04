@@ -19,11 +19,11 @@ function serviceCards(servicesData){
 
         <div class="flex justify-between items-center mt-4">
           <span class="text-xl font-bold text-purple-600">\$</span>
-          <button id="service-${service.id}"
+          <a href="/?p=orderservice&f=service&id=${service.id}" id="service-${service.id}"
             class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition"
           >
-            Learn More
-          </button>
+            заказать
+          </a>
         </div>
       </div>
     </div>`
