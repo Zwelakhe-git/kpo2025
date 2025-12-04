@@ -474,7 +474,7 @@ GET https://newsapi.org/v2/everything?q=Apple&from=2025-11-24&sortBy=popularity&
 
 
 
-![Снимок экрана 2025-12-04 070306](readmeFiles/images/Снимокэкрана2025-12-04070306.png)
+![Снимок экрана 2025-12-04 070306](readmeFiles/images/image-screen070306.png)
 
 **покупка билетов**
 
@@ -614,6 +614,7 @@ GET https://newsapi.org/v2/everything?q=Apple&from=2025-11-24&sortBy=popularity&
 2. **"Как скачать?"** → кнопка "Скачать"
 3. **"Где посмотреть видео?"** → Раздел "Трансляции" с расписанием
 4. **"Можно ли сохранить видео?"** → Нет, только просмотр в реальном времени
+
 
 
 
