@@ -259,8 +259,6 @@
 
 **5.1.**         **Фронтенд:**
 
-●   CDN (Cloudflare, AWS CloudFront) для статики и медиа
-
 ●   SSR → ISR (Incremental Static Regeneration) для новостей
 
 **5.2.**         **Бэкенд:**
@@ -271,7 +269,7 @@
 
 **5.3.**         **База данных:**
 
-●   PostgreSQL → read replicas (3–5 шт.)
+●   mySQWL → read replicas (3–5 шт.)
 
 ●   Миграция тяжёлых операций в ClickHouse (аналитика)
 
