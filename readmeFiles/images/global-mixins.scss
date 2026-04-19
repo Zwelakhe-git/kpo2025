@@ -1,0 +1,23 @@
+
+@mixin mobile(){
+    @media (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin tablet(){
+    @media (min-width: 768px) and (max-width: 1200px) {
+        @content;
+    }
+}
+@mixin desktop(){
+    @media (min-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin flex($direction: row, $gap: 5px){
+    display: flex;
+    flex-direction: $direction;
+    gap: 5px;
+}
